@@ -1,0 +1,46 @@
+body * {
+    position: absolute;
+}
+
+.parent {
+    background: repeating-linear-gradient(
+        45deg,
+        #3498db,
+        #3498db 10px,
+        #2980b9 10px,
+        #2980b9 20px
+    );
+    width: 300px;
+    height: 300px;
+    transform-style: preserve-3d;
+}
+
+.child {
+    background: repeating-linear-gradient(
+        135deg,
+        #e74c3c,
+        #e74c3c 10px,
+        #c0392b 10px,
+        #c0392b 20px
+    );
+    width: 100px;
+    height: 100px;
+    margin-top: 75px;
+    margin-left: 75px;
+    transform: translateZ(30px);
+}
+
+.grandchild {
+    background: repeating-linear-gradient(
+        45deg,
+        #2ecc71,
+        #2ecc71 10px,
+        #27ae60 10px,
+        #27ae60 20px
+    );
+    width: 25px;
+    height: 25px;
+    margin-top: 100px;
+    margin-left: 100px;
+    transform: translateZ(180px);
+}
