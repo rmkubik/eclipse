@@ -1,46 +1,68 @@
+body {
+    background-color: #010003;
+}
+
 body * {
     position: absolute;
 }
 
-.parent {
-    background: repeating-linear-gradient(
-        45deg,
-        #3498db,
-        #3498db 10px,
-        #2980b9 10px,
-        #2980b9 20px
-    );
-    width: 300px;
-    height: 300px;
+.viewport {
+    overflow: hidden;
+    height: 648px;
+    width: 1152px;
+}
+
+.border {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-image: url("../assets/images/border.png");
+}
+
+.base {
+    background-color: #010003;
+    background-image: url("../assets/images/0_background.png");
+    width: 1600px;
+    height: 900px;
+}
+
+.base div {
+    width: 100%;
+    height: 100%;
+    background-size: contain;
+}
+
+.layer1 {
     transform-style: preserve-3d;
+    /* transform: translate3d(-400px, -150px, -300px); */
+    transform: translateZ(-300px);
+
+    background-image: url("../assets/images/1_left nebula.png");
 }
 
-.child {
-    background: repeating-linear-gradient(
-        135deg,
-        #e74c3c,
-        #e74c3c 10px,
-        #c0392b 10px,
-        #c0392b 20px
-    );
-    width: 100px;
-    height: 100px;
-    margin-top: 75px;
-    margin-left: 75px;
+.layer2 {
+    /* transform: translate3d(-200px, -100px, -200px); */
+    transform: translateZ(-200px);
+
+    background-image: url("../assets/images/2_right nebula.png");
+}
+
+.layer3 {
+    transform: translateZ(-100px);
+    background-image: url("../assets/images/3_star base.png");
+}
+
+.layer4 {
+    /* transform: translateZ(100px); */
+    background-image: url("../assets/images/4_star base.png");
+}
+
+.layer5 {
     transform: translateZ(30px);
+    background-image: url("../assets/images/5_sun.png");
 }
 
-.grandchild {
-    background: repeating-linear-gradient(
-        45deg,
-        #2ecc71,
-        #2ecc71 10px,
-        #27ae60 10px,
-        #27ae60 20px
-    );
-    width: 25px;
-    height: 25px;
-    margin-top: 100px;
-    margin-left: 100px;
-    transform: translateZ(180px);
+.layer6 {
+    transform: translateZ(270px);
+    background-image: url("../assets/images/6_planet.png");
 }
