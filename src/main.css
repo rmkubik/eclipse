@@ -6,6 +6,15 @@ body * {
     position: absolute;
 }
 
+@keyframes twinkle {
+    from {
+        opacity: 0.5;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
 .viewport {
     overflow: hidden;
     height: 648px;
@@ -24,6 +33,8 @@ body * {
     background-image: url("../assets/images/0_background.png");
     width: 1600px;
     height: 900px;
+    top: calc((-1 / 2) * (900px - 648px));
+    left: calc((-1 / 2) * (1600px - 1152px));
 }
 
 .base div {
@@ -52,9 +63,27 @@ body * {
     background-image: url("../assets/images/3_star base.png");
 }
 
+.layer3b {
+    transform: translateZ(-100px);
+    background-image: url("../assets/images/3_star sparkles.png");
+    animation-name: twinkle;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
+}
+
 .layer4 {
     /* transform: translateZ(100px); */
     background-image: url("../assets/images/4_star base.png");
+}
+
+.layer4b {
+    /* transform: translateZ(-100px); */
+    background-image: url("../assets/images/4_star sparkles.png");
+    animation-name: twinkle;
+    animation-direction: alternate;
+    animation-timing-function: ease-in-out;
+    animation-iteration-count: infinite;
 }
 
 .layer5 {
