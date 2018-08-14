@@ -1,5 +1,6 @@
 body {
-    background-color: #010003;
+    background-color: #0c0c0c;
+    margin: 0;
 }
 
 body * {
@@ -39,7 +40,7 @@ body * {
 }
 
 .base {
-    background-color: #010003;
+    background-color: #0c0c0c;
     background-image: url("../assets/images/0_background.png");
     width: 1600px;
     height: 900px;
@@ -91,6 +92,11 @@ body * {
 .layer5 {
     transform: translateZ(30px);
     background-image: url("../assets/images/5_sun.png");
+}
+
+.layer5b {
+    transform: translateZ(30px);
+    background-image: url("../assets/images/5_sun light.png");
 }
 
 .layer6 {

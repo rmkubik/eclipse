@@ -1,14 +1,15 @@
 {
-  "name": "parallax-planets",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "vanilla-tilt": "^1.4.1"
-  }
+    "name": "parallax-planets",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build": "zip -r eclipse src lib assets index.html",
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "vanilla-tilt": "^1.4.1"
+    }
 }
