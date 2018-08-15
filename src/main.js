@@ -8,7 +8,7 @@
 //     }
 // ];
 
-function intBetweenInvclusive(low, high) {
+function intBetweenInclusive(low, high) {
     return Math.floor(Math.random() * (high - low + 1)) + low;
 }
 
@@ -46,20 +46,23 @@ const asteroidSprites = [
     "assets/images/asteroid 2.png",
     "assets/images/asteroid 3.png"
 ];
+const asteroidSpinDirections = ["spinCounterClockwise", "spinClockwise"];
 const asteroidScale = 0.03;
 const dimensions = {
     height: 648,
     width: 1152
 };
 const spawnAsteroid = () => {
-    const x = intBetweenInvclusive(0, dimensions.width);
-    const y = intBetweenInvclusive(0, dimensions.height);
+    const x = intBetweenInclusive(0, dimensions.width);
+    const y = intBetweenInclusive(0, dimensions.height);
     const asteroid = document.createElement("img");
     asteroid.src = pickRandomlyFromArray(asteroidSprites);
     asteroid.style.width = `${asteroidScale * dimensions.width}px`;
-    // asteroid.style.height = `${asteroidScale}%`;
     asteroid.style.left = `${x}px`;
     asteroid.style.top = `${y}px`;
+    asteroid.classList.add(pickRandomlyFromArray(asteroidSpinDirections));
+    asteroid.style.animationDuration = `${intBetweenInclusive(20, 50)}s`;
+    asteroid.style.transform = `rotate(${intBetweenInclusive(0, 360)}deg)`;
     document.querySelector(".layer7").appendChild(asteroid);
 };
 
@@ -72,6 +75,10 @@ window.onload = () => {
         speed: 30000,
         reverse: true
     });
+
+    for (let i = 0; i < 10; i++) {
+        spawnAsteroid();
+    }
 
     // animate(
     //     document.querySelector(".layer1"),
