@@ -8,6 +8,14 @@
 //     }
 // ];
 
+function intBetweenInvclusive(low, high) {
+    return Math.floor(Math.random() * (high - low + 1)) + low;
+}
+
+function pickRandomlyFromArray(array) {
+    return array[Math.floor(Math.random() * array.length)];
+}
+
 const animate = (div, frames, rate) => {
     div.dataset.frame = 0;
     setInterval(() => {
@@ -31,6 +39,28 @@ const getTiltDifference = (rootParallaxLayer, target) => {
         percentageY
     } = rootParallaxLayer.vanillaTilt.getValues();
     return findDistance({ x: percentageY, y: percentageY }, target);
+};
+
+const asteroidSprites = [
+    "assets/images/asteroid 1.png",
+    "assets/images/asteroid 2.png",
+    "assets/images/asteroid 3.png"
+];
+const asteroidScale = 0.03;
+const dimensions = {
+    height: 648,
+    width: 1152
+};
+const spawnAsteroid = () => {
+    const x = intBetweenInvclusive(0, dimensions.width);
+    const y = intBetweenInvclusive(0, dimensions.height);
+    const asteroid = document.createElement("img");
+    asteroid.src = pickRandomlyFromArray(asteroidSprites);
+    asteroid.style.width = `${asteroidScale * dimensions.width}px`;
+    // asteroid.style.height = `${asteroidScale}%`;
+    asteroid.style.left = `${x}px`;
+    asteroid.style.top = `${y}px`;
+    document.querySelector(".layer7").appendChild(asteroid);
 };
 
 window.onload = () => {

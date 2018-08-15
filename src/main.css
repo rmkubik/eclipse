@@ -10,7 +10,6 @@ body * {
 @keyframes twinkle {
     from {
         opacity: 0.5;
-        /* background-color: red; */
     }
     to {
         opacity: 1;
@@ -56,14 +55,12 @@ body * {
 
 .layer1 {
     transform-style: preserve-3d;
-    /* transform: translate3d(-400px, -150px, -300px); */
     transform: translateZ(-300px);
 
     background-image: url("../assets/images/1_left nebula.png");
 }
 
 .layer2 {
-    /* transform: translate3d(-200px, -100px, -200px); */
     transform: translateZ(-200px);
 
     background-image: url("../assets/images/2_right nebula.png");
@@ -80,12 +77,10 @@ body * {
 }
 
 .layer4 {
-    /* transform: translateZ(100px); */
     background-image: url("../assets/images/4_star base.png");
 }
 
 .layer4b {
-    /* transform: translateZ(-100px); */
     background-image: url("../assets/images/4_star sparkles.png");
 }
 
@@ -102,4 +97,8 @@ body * {
 .layer6 {
     transform: translateZ(270px);
     background-image: url("../assets/images/6_planet.png");
+}
+
+.layer7 {
+    transform: translateZ(330px);
 }
