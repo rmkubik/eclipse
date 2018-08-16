@@ -8,6 +8,10 @@
 //     }
 // ];
 
+function floatBetween(low, high) {
+    return Math.random() * (high - low) + low;
+}
+
 function intBetweenInclusive(low, high) {
     return Math.floor(Math.random() * (high - low + 1)) + low;
 }
@@ -47,7 +51,10 @@ const asteroidSprites = [
     "assets/images/asteroid 3.png"
 ];
 const asteroidSpinDirections = ["spinCounterClockwise", "spinClockwise"];
-const asteroidScale = 0.03;
+const asteroidScale = {
+    max: 0.03,
+    min: 0.005
+};
 const dimensions = {
     height: 648,
     width: 1152
@@ -57,7 +64,10 @@ const spawnAsteroid = () => {
     const y = intBetweenInclusive(0, dimensions.height);
     const asteroid = document.createElement("img");
     asteroid.src = pickRandomlyFromArray(asteroidSprites);
-    asteroid.style.width = `${asteroidScale * dimensions.width}px`;
+    asteroid.style.width = `${floatBetween(
+        asteroidScale.min,
+        asteroidScale.max
+    ) * dimensions.width}px`;
     asteroid.style.left = `${x}px`;
     asteroid.style.top = `${y}px`;
     asteroid.classList.add(pickRandomlyFromArray(asteroidSpinDirections));
