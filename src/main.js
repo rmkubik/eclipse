@@ -64,6 +64,7 @@ const spawnAsteroid = () => {
     const y = intBetweenInclusive(0, dimensions.height);
     const asteroid = document.createElement("img");
     asteroid.src = pickRandomlyFromArray(asteroidSprites);
+    asteroid.draggable = false;
     asteroid.style.width = `${floatBetween(
         asteroidScale.min,
         asteroidScale.max
@@ -74,6 +75,21 @@ const spawnAsteroid = () => {
     asteroid.style.animationDuration = `${intBetweenInclusive(20, 50)}s`;
     asteroid.style.transform = `rotate(${intBetweenInclusive(0, 360)}deg)`;
     document.querySelector(".layer7").appendChild(asteroid);
+};
+
+const offset = {
+    x: (1600 - dimensions.width) / 2,
+    y: (900 - dimensions.height) / 2
+};
+const minerScale = 0.03;
+const spawnMiner = ({ x, y }) => {
+    const miner = document.createElement("img");
+    miner.src = "assets/images/mining.png";
+    miner.draggable = false;
+    miner.style.width = `${minerScale * dimensions.width}px`;
+    miner.style.left = `${offset.x + x}px`;
+    miner.style.top = `${offset.y + y}px`;
+    document.querySelector(".layer7").appendChild(miner);
 };
 
 window.onload = () => {
@@ -89,6 +105,14 @@ window.onload = () => {
     for (let i = 0; i < 10; i++) {
         spawnAsteroid();
     }
+
+    window.onclick = event => {
+        console.log(event);
+        spawnMiner({
+            x: event.x,
+            y: event.y
+        });
+    };
 
     // animate(
     //     document.querySelector(".layer1"),
